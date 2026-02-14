@@ -4,83 +4,36 @@ import { motion } from 'framer-motion';
 
 export default function LandingPage({ onStart }: { onStart: () => void }) {
   return (
-    <div className="relative h-screen w-full overflow-hidden bg-gradient-to-br from-pink-200 via-purple-200 to-pink-300">
-      {/* Floating hearts */}
-      {[...Array(15)].map((_, i) => (
-        <motion.div
-          key={i}
-          className="absolute text-2xl"
-          initial={{ y: '100vh', x: Math.random() * 400, opacity: 0.6 }}
-          animate={{ 
-            y: '-10vh',
-            x: Math.random() * 400,
-          }}
-          transition={{
-            duration: 8 + Math.random() * 4,
-            repeat: Infinity,
-            delay: Math.random() * 5,
-            ease: 'linear'
-          }}
-        >
-          {['💕', '💖', '✨', '🌸'][Math.floor(Math.random() * 4)]}
-        </motion.div>
-      ))}
-
-      {/* Sparkles */}
-      {[...Array(20)].map((_, i) => (
-        <motion.div
-          key={`sparkle-${i}`}
-          className="absolute w-1 h-1 bg-white rounded-full"
-          style={{
-            left: `${Math.random() * 100}%`,
-            top: `${Math.random() * 100}%`,
-          }}
-          animate={{
-            opacity: [0, 1, 0],
-            scale: [0, 1.5, 0],
-          }}
-          transition={{
-            duration: 2 + Math.random() * 2,
-            repeat: Infinity,
-            delay: Math.random() * 3,
-          }}
-        />
-      ))}
-
+    <div className="relative h-screen w-full overflow-hidden bg-gradient-to-br from-pink-50 via-rose-100 to-pink-100">
       {/* Content */}
-      <div className="relative z-10 flex flex-col items-center justify-center h-full px-6">
+      <div className="relative z-10 flex flex-col items-center justify-center h-full px-8">
         <motion.h1
-          className="text-5xl md:text-6xl font-bold text-pink-600 mb-4 text-center"
+          className="text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-rose-500 mb-3 text-center"
           style={{ fontFamily: 'Pacifico, cursive' }}
-          initial={{ opacity: 0, y: -50 }}
+          initial={{ opacity: 0, y: -30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
+          transition={{ duration: 0.8 }}
         >
           My Kandaaa 💘
         </motion.h1>
 
         <motion.p
-          className="text-xl text-purple-600 mb-12 text-center"
+          className="text-lg text-rose-600 mb-16 text-center"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 0.5, duration: 1 }}
+          transition={{ delay: 0.3, duration: 0.8 }}
         >
           A special something for my Valentine ✨
         </motion.p>
 
         <motion.button
           onClick={onStart}
-          className="px-12 py-4 bg-gradient-to-r from-pink-400 to-purple-400 text-white text-xl font-semibold rounded-full shadow-lg"
+          className="px-16 py-4 bg-gradient-to-r from-pink-400 to-rose-400 text-white text-lg font-semibold rounded-full shadow-lg"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          animate={{
-            scale: [1, 1.05, 1],
-          }}
-          transition={{
-            duration: 2,
-            repeat: Infinity,
-            ease: 'easeInOut'
-          }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.6 }}
         >
           Start 💝
         </motion.button>
